@@ -10,9 +10,9 @@
     }
   },
   "variables": {
-    "repoUrl": "https://github.com/AzureBytes/functionshttpecho.git",
+    "repoUrl": "https://github.com/daprieto1/azure-function-template.git",
     "branch": "master",
-    "functionName": "Echo",
+    "functionName": "Hello",
     "hostingPlanName": "[parameters('functionAppName')]",
     "storageAccountName": "diegostorageexperiments",
     "storageACcountid": "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]",
