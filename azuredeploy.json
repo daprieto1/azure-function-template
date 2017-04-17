@@ -19,6 +19,16 @@
       "metadata": {
         "description": "The chain of conection to the database."
       }
+    },
+    "accountType": {
+      "type": "String"
+    },
+    "location": {
+      "type": "String"
+    },
+    "encryptionEnabled": {
+      "defaultValue": false,
+      "type": "Bool"
     }
   },
   "variables": {
@@ -33,11 +43,35 @@
   },
   "resources": [
     {
+      "type": "Microsoft.Storage/storageAccounts",
+      "sku": {
+        "name": "[parameters('accountType')]"
+      },
+      "kind": "Storage",
+      "name": "[parameters('storageAccountName')]",
+      "apiVersion": "2016-01-01",
+      "location": "[parameters('location')]",
+      "properties": {
+        "encryption": {
+          "services": {
+            "blob": {
+              "enabled": "[parameters('encryptionEnabled')]"
+            },
+            "file": null
+          },
+          "keySource": "Microsoft.Storage"
+        }
+      }
+    },
+    {
       "apiVersion": "2015-08-01",
       "type": "Microsoft.Web/sites",
       "name": "[parameters('functionAppName')]",
       "location": "[resourceGroup().location]",
       "kind": "functionapp",
+      "dependsOn":[
+        "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]"
+      ],
       "properties": {
         "siteConfig": {
           "appSettings": [

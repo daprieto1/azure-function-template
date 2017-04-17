@@ -10,6 +10,15 @@
     },
     "databaseConnection": {
       "value": "Yes, it's work from template"
+    },
+    "accountType": {
+      "value": "Standard_RAGRS"
+    },
+    "location": {
+      "value": "eastus"
+    },
+    "encryptionEnabled": {
+      "value": false
     }
   }
 }
