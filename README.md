@@ -19,6 +19,21 @@ La siguientes son variables importantes a definir para realizar el despliegue:
 
 * functionAppName: Nombre del 'App Service' a crear en Azure, el cuál puede agrupar multiples funciones.
 
+## Application Settings
+
+Administrar variables de entorno, versiones de los Frameworks, debug remoto, configuraciones de aplicación, cadenas de conexión, etc. Esas configuraciones son especificas para cada 'Function App'.
+
+Para hacerlo configure la pareja llave valor en la sección del recurso de 'Function App'.
+
+```
+appSettings = [
+		{
+			"name": "DATABASE_CONNECTION",
+			"value": "[parameters('databaseConnection')]"
+		}
+	]
+```
+
 ## Despliegue de la Function
 
 Realizar una petición `POST` a la siguiente URL usando en el body el objeto que aparece más abajo.
@@ -40,5 +55,6 @@ Realizar una petición `POST` a la siguiente URL usando en el body el objeto que
 * https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview
 * https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-export-template
 * https://docs.microsoft.com/en-us/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview
+* https://docs.microsoft.com/en-us/azure/azure-functions/functions-how-to-use-azure-function-app-settings
 
 
