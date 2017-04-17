@@ -4,6 +4,12 @@
   "parameters": {
     "functionAppName": {
       "value": "RestBizagiTest1"
+    },
+    "storageAccountName": {
+      "value": "diegostorageexperiments"
+    },
+    "databaseConnection": {
+      "value": "Yes, it's work from template"
     }
   }
 }

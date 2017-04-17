@@ -7,14 +7,26 @@
       "metadata": {
         "description": "The name of the function app to create. Must be globally unique."
       }
+    },
+    "storageAccountName": {
+      "type": "string",
+      "metadata": {
+        "description": "The name of the storage account name. Must exist in the resource group."
+      }
+    },
+    "databaseConnection": {
+      "type": "string",
+      "metadata": {
+        "description": "The chain of conection to the database."
+      }
     }
   },
   "variables": {
     "repoUrl": "https://github.com/daprieto1/azure-function-template.git",
     "branch": "master",
-    "functionName": "Hello",
+    "functionName": "TimerTriggerCSharp",
     "hostingPlanName": "[parameters('functionAppName')]",
-    "storageAccountName": "diegostorageexperiments",
+    "storageAccountName": "[parameters('storageAccountName')]",
     "storageACcountid": "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]",
     "LogicAppLocation": "[resourceGroup().location]",
     "storageAccountType": "Standard_LRS"
@@ -52,6 +64,10 @@
             {
               "name": "WEBSITE_NODE_DEFAULT_VERSION",
               "value": "6.5.0"
+            },
+            {
+              "name": "DATABASE_CONNECTION",
+              "value": "[parameters('databaseConnection')]"
             }
           ]
         }
