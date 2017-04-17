@@ -50,6 +50,10 @@ Realizar una petición `POST` a la siguiente URL usando en el body el objeto que
 }
 ```
 
+## Storage Account
+
+Para crear un 'Function App' de Azure es necesario disponer de un 'Storage Account' para almacenar información importante como el código de nuestras funciones, información de monitoreo y seguimiento etc. El template que esta en el archivo `azuredeploy.json`, contempla la creación de este recurso como dependencia antes de proceder a crear el 'Function', el cual en caso de existir es omitido en el despliegue.
+
 ## Bibliografía
 * https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-create-first-template
 * https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview
