@@ -32,9 +32,9 @@
     }
   },
   "variables": {
-    "repoUrl": "https://github.com/daprieto1/azure-function-template.git",
+    "repoUrl": "https://bizagidev.visualstudio.com/DefaultCollection/_git/Monitoring",
     "branch": "master",
-    "functionName": "TimerTriggerCSharp",
+    "functionName": "StatusReportFunction",
     "hostingPlanName": "[parameters('functionAppName')]",
     "storageAccountName": "[parameters('storageAccountName')]",
     "storageACcountid": "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]",
@@ -69,7 +69,7 @@
       "name": "[parameters('functionAppName')]",
       "location": "[resourceGroup().location]",
       "kind": "functionapp",
-      "dependsOn":[
+      "dependsOn": [
         "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]"
       ],
       "properties": {
@@ -100,8 +100,24 @@
               "value": "6.5.0"
             },
             {
-              "name": "DATABASE_CONNECTION",
-              "value": "[parameters('databaseConnection')]"
+              "name": "AzureWebJobsStorage",
+              "value": "DefaultEndpointsProtocol=https;AccountName=eus20functions0dev0sa;AccountKey=g9aM/1a/thIVm+ywNKdOTVvHqwGR4/+SaBNqAQgp8skQKYpmA/FFLIctqY8KPzj7y7m465MdGULXBIwXAPBCbQ=="
+            },
+            {
+              "name": "AzureWebJobsDashboard",
+              "value": ""
+            },
+            {
+              "name": "engineurl",
+              "value": "https://bizagiqa.bizagi.com/statusreporttest/jquery/version.json.txt"
+            },
+            {
+              "name": "environment",
+              "value": "69a84eae-a532-413b-935c-4d5f97f17b25"
+            },
+            {
+              "name": "timeout",
+              "value": "3"
             }
           ]
         }

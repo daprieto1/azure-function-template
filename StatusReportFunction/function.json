@@ -1,0 +1,19 @@
+{
+    "disabled": false,
+    "bindings": [
+        {
+            "name": "FactsTimer",
+            "type": "timerTrigger",
+            "direction": "in",
+            "schedule": "*/30 * * * * *",
+            "runOnStartup": true
+        },
+        {
+            "type": "table",
+            "direction": "out",
+            "tableName": "StatusReportFactsIncidents",
+            "name": "incidents",
+            "connection": "AzureWebJobsStorage"
+        }
+    ]
+}
